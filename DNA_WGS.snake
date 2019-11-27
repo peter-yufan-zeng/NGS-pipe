@@ -86,6 +86,14 @@ if not 'VARSCANSOMATICIN' in globals():
     VARSCANSOMATICIN = MPILEUPOUT
 if not 'VARSCANSOMATICOUT' in globals():
     VARSCANSOMATICOUT = OUTDIR + 'variants/varscan_somatic/raw/'
+if not 'STRELKA2IN' in globals():
+    STRELKA2IN = BASERECALIBRATIONOUT
+if not 'STRELKA2OUT' in globals():
+    STRELKA2OUT = OUTDIR + 'variants/strelka2/'
+if not 'SOMATICSNIPEROUT' in globals():
+    SOMATICSNIPEROUT = OUTDIR + 'variants/somaticSniper/raw/'
+if not 'FACETSOUT' in globals():
+    FACETSOUT = OUTDIR + 'copy_number/facets/'
 
 # Definition of some constantly used lists
 SINGLEFASTQFILES = [file.replace(FASTQDIR, '').replace('.fastq.gz','')for file in glob.glob(FASTQDIR + '*/SINGLEEND/*.fastq.gz')]

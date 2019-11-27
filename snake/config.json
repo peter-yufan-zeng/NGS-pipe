@@ -35,7 +35,7 @@
             "regions": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/gencode.v22.bed",
             "regionsQualimap": "regions_for_qualimap.bed",
             "dbSNP": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/references_hg38_v0_Homo_sapiens_assembly38.dbsnp138.vcf",
-            "1000G_indels": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/1000G_phase1.indels.hg19.sites.vcf",
+            "1000G_indels": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/resources_broad_hg38_v0_1000G.phase3.integrated.sites_only.no_MATCHED_REV.hg38.vcf",
             "1000G_omni": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/resources_broad_hg38_v0_1000G_omni2.5.hg38.vcf ",
             "1000G_snp": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/resources_broad_hg38_v0_1000G_phase1.snps.high_confidence.hg38.vcf",
             "Mills_indels": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/references_hg38_v0_Mills_and_1000G_gold_standard.indels.hg38.vcf",
@@ -731,16 +731,16 @@
             "threads": 1
         },
         "annovar":{
-            "call" : "perl /path/to/annovar/table_annovar.pl ",
+            "call" : "table_annovar.pl ",
             "scratch": "10000",
             "mem": "10000",
             "time": "60",
             "threads": 1,
-            "buildver" : "hg19",
+            "buildver" : "hg38",
             "params": "-remove -protocol ensGene,knownGene -operation g,g -nastring . --otherinfo "
         },
         "fastqc": {
-            "call" : "/path/to/fastqc",
+            "call" : "fastqc ",
             "scratch": "10000",
             "mem": "10000",
             "time": "60",
@@ -756,7 +756,7 @@
             "threads": 1
         },
 	"bedtools": {
-	"call": "/path/to/bedtools ",
+	"call": "bedtools ",
         "intersect": {
                 "params": "",
                 "scratch": "1000",
@@ -774,7 +774,7 @@
         },
         "facets": {
             "snpPileup": {
-                "call": "/path/to/facets/inst/extcode/snp-pileup",
+                "call": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/facets/inst/extcode/snp-pileup",
                 "scratch": "10000",
                 "mem": "10000",
                 "time": "600",
@@ -818,49 +818,49 @@
         },
         "somaticseq": {
           "jsm2vcf": {
-              "call": "/path/to/somaticseq/Run_5_callers/individual_callers/JSM2VCF.sh ",
+              "call": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/Run_5_callers/individual_callers/JSM2VCF.sh ",
               "scratch": "1000",
               "mem": "1000",
               "time": "235",
               "threads": 1
           },
           "modifyvjsd": {
-              "call": "python3 /path/to/somaticseq/modify_VJSD.py ",
+              "call": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/modify_VJSD.py ",
               "scratch": "1000",
               "mem": "1000",
               "time": "60",
               "threads": 1
           },
           "modifymutect": {
-              "call": "python3 /path/to/somaticseq/modify_MuTect.py ",
+              "call": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/modify_MuTect.py ",
               "scratch": "1000",
               "mem": "1000",
               "time": "60",
               "threads": 1
           },
           "scoresomaticvariants": {
-              "call": "python3 /path/to/somaticseq/score_Somatic.Variants.py ",
+              "call": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/score_Somatic.Variants.py ",
               "scratch": "10000",
               "mem": "10000",
               "time": "235",
               "threads": 1
           },
           "vcf2tsv": {
-              "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq/somaticseq/SSeq_merged.vcf2tsv.py ",
+              "call": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/SSeq_merged.vcf2tsv.py ",
               "scratch": "10000",
               "mem": "10000",
               "time": "1400",
               "threads": 1
           },
           "adaclassify": {
-              "call": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq/r_scripts/ada_model_predictor.R ",
+              "call": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/r_scripts/ada_model_predictor.R ",
               "scratch": "30000",
               "mem": "30000",
               "time": "1400",
               "threads": 1
           },
           "tsv2vcf": {
-              "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq/somaticseq/SSeq_tsv2vcf.py",
+              "call": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/SSeq_tsv2vcf.py",
               "scratch": "3000",
               "mem": "3000",
               "time": "60",

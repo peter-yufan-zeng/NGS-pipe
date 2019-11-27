@@ -70,6 +70,18 @@ if not 'VARSCANCNVIN' in globals():
     VARSCANCNVIN = MPILEUPOUT
 if not 'VARSCANCNVOUT' in globals():
     VARSCANCNVOUT = OUTDIR + 'varscan_cnv/'
+if not 'VARSCANSNPIN' in globals():
+    VARSCANSNPIN = MPILEUPOUT
+if not 'VARSCANSNPOUT' in globals():
+    VARSCANSNPOUT = OUTDIR + 'variants/varscansnp/raw/'
+if not 'VARDICTIN' in globals():
+    VARDICTIN = BASERECALIBRATIONOUT
+if not 'VARDICTOUT' in globals():
+    VARDICTOUT = OUTDIR + 'variants/varDict/raw/'
+if not 'VARDICTFILTEROUT' in globals():
+    VARDICTFILTEROUT = OUTDIR + 'variants/varDict/filtered/'
+if not 'GATKVARIANTCOMBINEOUT' in globals():
+    GATKVARIANTCOMBINEOUT = OUTDIR + 'variants/gatk_combined/'
 
 # Definition of some constantly used lists
 SINGLEFASTQFILES = [file.replace(FASTQDIR, '').replace('.fastq.gz','')for file in glob.glob(FASTQDIR + '*/SINGLEEND/*.fastq.gz')]

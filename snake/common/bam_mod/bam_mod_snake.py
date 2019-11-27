@@ -28,9 +28,9 @@ rule linkIndex:
     params:
         lsfoutfile = '{sample}.bam.bai.lsfout.log',
         lsferrfile = '{sample}.bam.bai.lsferr.log',
-        scratch = '1000', 
-        mem = '1000', 
-        time = '1' 
+        scratch = '1000',
+        mem = '1000',
+        time = '1'
     threads:
         1
     benchmark:
@@ -117,7 +117,7 @@ def getBamsToMerge(wildcards):
     out = []
     allBams = getAlignerBams()
     for bam in allBams:
-        if wildcards.sample == bam.split("/")[0]: 
+        if wildcards.sample == bam.split("/")[0]:
             out.append(MERGEBAMSIN + bam)
     if not out:
         #print(wildcards)
@@ -126,6 +126,7 @@ def getBamsToMerge(wildcards):
 
 # This function prepends 'INPUT=' in front of every BAM file that is to be merged.
 def prependBamsToMerge(wildcards):
+    print(wildcards)
     bamsToMerge = getBamsToMerge(wildcards)
     return ''.join(['INPUT='+bam+' ' for bam in bamsToMerge])
 
@@ -475,7 +476,7 @@ def getExperimentIdFromBam(wildcards):
                     sampleMap[sample] = sample
                 else:
                     return "Unknown parameter " + config['tools']['GATK']['realign']['realignFilesFromExperimentTogether'] + " to specify whether all bams of one experiment should be realiged together."
-    
+
     if wildcards.sample not in sampleMap.keys():
         #raise ValueError(wildcards.sample + " is not a sample ID")
         return "UnknownSample"
@@ -486,7 +487,7 @@ def getRealignedExperiment(wildcards):
 
 
 # This is a "dummy" rule
-localrules: getRealignedBam 
+localrules: getRealignedBam
 rule getRealignedBam:
     input:
         txt = getRealignedExperiment
@@ -558,9 +559,9 @@ rule gatk_first_pass_create_recalibration_table:
         '-L {input.regions} ' +
         '-R {input.reference} ' +
         '-I {input.bam} ' +
-        '{params.known} ' + 
+        '{params.known} ' +
         '-nct {threads} ' +
-        '{params.params} ' +        
+        '{params.params} ' +
         '-o {output.tab}')
 
 # Rule to create the base-recalibration table used to analyze the effect of the baserecalibration
@@ -598,7 +599,7 @@ rule gatk_second_pass_create_recalibration_table:
         '{params.known} ' +
         '-nct {threads} ' +
         '-BQSR {input.tab} ' +
-        '{params.params} ' +                
+        '{params.params} ' +
         '-o {output.tab}')
 
 # Rule to realing the reads around indels
@@ -617,7 +618,7 @@ rule gatk_base_recalibration:
         lsferrfile = BASERECALIBRATIONOUT + '{sample}.bam.lsferr.log',
         scratch = config['tools']['GATK']['baseRecalibratorPrintReads']['scratch'],
         mem = config['tools']['GATK']['baseRecalibratorPrintReads']['mem'],
-        params = config['tools']['GATK']['baseRecalibratorPrintReads']['params'],        
+        params = config['tools']['GATK']['baseRecalibratorPrintReads']['params'],
         time = config['tools']['GATK']['baseRecalibratorPrintReads']['time']
     benchmark:
         BASERECALIBRATIONOUT + '{sample}.bam.benchmark'
@@ -629,7 +630,7 @@ rule gatk_base_recalibration:
         '-R {input.reference} ' +
         '-I {input.bam} ' +
         '-o {output.bam} ' +
-        '{params.params} ' +                        
+        '{params.params} ' +
         '-BQSR {input.tab}')
 
 if not 'MPILEUPIN' in globals():
@@ -658,7 +659,7 @@ rule mpileupBcf:
         MPILEUPOUT + '{sample}.bcf.log'
     shell:
         ('{config[tools][samtools][call]} mpileup ' +
-        '{params.params} ' + 
+        '{params.params} ' +
         '-f {input.reference} ' +
         '-o {output.bcf} ' +
         '-l {input.regions} ' +
@@ -686,9 +687,8 @@ rule mpileupMpileup:
         MPILEUPOUT + '{sample}.mpileup.log'
     shell:
         ('{config[tools][samtools][call]} mpileup ' +
-        '{params.params} ' + 
-        '-f {input.reference} ' + 
-        '-o {output.mpileup} ' + 
+        '{params.params} ' +
+        '-f {input.reference} ' +
+        '-o {output.mpileup} ' +
         '-l {input.regions} ' +
         '{input.bam}')
-

@@ -68,7 +68,7 @@
     },
     "tools":{
         "trimmomatic": {
-            "call": "java -Xmx24G -jar $EBROOTTRIMMOMATIC/trimmomatic.jar ",
+            "call": "java -Xmx24G -jar $EBROOTTRIMMOMATIC/trimmomatic-0.36.jar ",
             "scratch": "1000",
             "mem": "8000",
             "time": "640",
@@ -131,7 +131,7 @@
         },
         "bwa":{
             "mem":{
-                "call":"/path/to/bwa mem ",
+                "call":"bwa mem ",
                 "params": "-M ",
                 "scratch": "2000",
                 "memory": "2000",
@@ -139,7 +139,7 @@
                 "threads": 24
             },
             "aln":{
-                "call":"/path/to/bwa aln ",
+                "call":"bwa aln ",
                 "params": "-q 5 ",
                 "scratch": "1000",
                 "memory": "1000",
@@ -147,7 +147,7 @@
                 "threads": 24
             },
             "sampe":{
-                "call":"/path/to/bwa sampe ",
+                "call":"bwa sampe ",
                 "params": "",
                 "scratch": "1000",
                 "mem": "1000",
@@ -235,7 +235,7 @@
             }
         },
         "picard":{
-            "call": "java -jar /path/to/picard.jar ",
+            "call": "java -jar $EBROOTPICARD/picard.jar ",
             "markduplicates":{
                 "mem": "12000",
                 "time": "1400",
@@ -289,7 +289,7 @@
             }
         },
         "GATK":{
-            "call": "java -Xmx16G -jar /path/to/GenomeAnalysisTK.jar",
+            "call": "java -Xmx16G -jar $EBROOTGATK/GenomeAnalysisTK.jar",
             "realign" : {
                 "targetCreator":{
                     "threads": 4,
@@ -470,7 +470,7 @@
             "altMinCount": ""
         },
         "varscan":{
-            "call": "java -Xmx20g -jar /path/to/VarScan.jar",
+            "call": "varscan",
             "pileup2snp":{
                 "threads": 1,
                 "mem": "2000",
@@ -500,7 +500,7 @@
             }
         },
         "somaticSniper":{
-            "call": "/path/to/bam-somaticsniper ",
+            "call": "bam-somaticsniper ",
             "params": "-q 25 -Q 15 -s 0.0001",
             "scratch": "16000",
             "mem": "16000",
@@ -615,11 +615,11 @@
             "strelka": "Y"
         },
         "varDict":{
-            "call": "/path/to/VarDict/bin/VarDict ",
-            "expRscript": "export PATH=/path/to/Rscript:$PATH;",
-            "varDictTestSomatic": "/path/to/VarDict/testsomatic.R ",
-            "varDict2VcfSomatic": "/path/to/VarDict/var2vcf_somatic.pl ",
-            "varDict2VcfPaired": "/path/to/VarDict/var2vcf_paired.pl ",
+            "call": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/VarDict/vardict ",
+            "expRscript": "export PATH=/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/VarDict:$PATH;",
+            "varDictTestSomatic": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/VarDict/testsomatic.R ",
+            "varDict2VcfSomatic": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/VarDict/var2vcf_paired.pl ",
+            "varDict2VcfPaired": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/VarDict/var2vcf_paired.pl ",
             "scratch": "20000",
             "mem": "20000",
             "time": "1400",
@@ -782,7 +782,7 @@
                 "params": "-g"
             },
             "region": {
-                "call": "/path/to/bedtools intersect ",
+                "call": "bedtools intersect ",
                 "params": "",
                 "scratch": "1000",
                 "mem": "1000",
@@ -846,21 +846,21 @@
               "threads": 1
           },
           "vcf2tsv": {
-              "call": "python3 /path/to/somaticseq/SSeq_merged.vcf2tsv.py ",
+              "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq/somaticseq/SSeq_merged.vcf2tsv.py ",
               "scratch": "10000",
               "mem": "10000",
               "time": "1400",
               "threads": 1
           },
           "adaclassify": {
-              "call": "/path/to/somaticseq/r_scripts/ada_model_predictor.R ",
+              "call": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq/r_scripts/ada_model_predictor.R ",
               "scratch": "30000",
               "mem": "30000",
               "time": "1400",
               "threads": 1
           },
           "tsv2vcf": {
-              "call": "python3 /path/to/somaticseq/SSeq_tsv2vcf.py",
+              "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq/somaticseq/SSeq_tsv2vcf.py",
               "scratch": "3000",
               "mem": "3000",
               "time": "60",

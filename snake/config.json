@@ -172,7 +172,7 @@
             }
         },
         "samtools":{
-            "call": "/path/to/samtools ",
+            "call": "samtools ",
             "flagstat":{
                 "scratch":"2000",
                 "mem": "4000",
@@ -207,7 +207,7 @@
             }
         },
         "bcftools":{
-            "call": "/path/to/bcftools ",
+            "call": "bcftools ",
             "threads": 1,
             "mem": "5000",
             "time": "1000",
@@ -235,7 +235,7 @@
             }
         },
         "picard":{
-            "call": "java -jar $EBROOTPICARD/picard.jar ",
+            "call": "java -Xmx24G -jar $EBROOTPICARD/picard.jar ",
             "markduplicates":{
                 "mem": "12000",
                 "time": "1400",
@@ -393,7 +393,7 @@
             "threads": 1
         },
         "strelka":{
-            "call": "sh /path/to/NGS-pipe/scripts/strelka.sh ",
+            "call": "sh /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/strelka.sh ",
             "intervalPadding": "0",
             "strelkaPerlScript": "/path/to/strelka1/1.0.14/x86_64/bin/configureStrelkaWorkflow.pl ",
             "scratch": "5000",
@@ -402,23 +402,23 @@
             "threads": 1
         },
         "strelkaFilter":{
-            "call": "sh /path/to/NGS-pipe-Develop/scripts/strelkaFilter.sh ",
+            "call": "sh /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-Develop/scripts/strelkaFilter.sh ",
             "scratch": "5000",
             "mem": "1000",
             "time": "20",
             "threads": 1
         },
 	"strelka2":{
-            "call": "sh /path/to/NGS-pipe/scripts/strelka2.sh ",
+            "call": "sh /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/strelka2.sh ",
             "intervalPadding": "0",
-            "strelka2PythonScript": "/path/to/strelka2/v2.9.2/strelka-2.9.2.centos6_x86_64/bin/configureStrelkaSomaticWorkflow.py",
+            "strelka2PythonScript": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/strelka/src/python/bin/configureStrelkaSomaticWorkflow.py",
             "scratch": "5000",
             "mem": "10000",
             "time": "1400",
             "threads": 1
         },
 	"strelka2Filter":{
-            "call": "sh /path/to/NGS-pipe-Develop/scripts/strelkaFilter.sh ",
+            "call": "sh /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/strelkaFilter.sh ",
             "scratch": "5000",
             "mem": "1000",
             "time": "20",
@@ -508,7 +508,7 @@
             "threads": 1
         },
         "varscanSomaticFilter":{
-            "call": "python /path/to/NGS-pipe/scripts/filterSNVcallOutput_varscan_somatic.py ",
+            "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/filterSNVcallOutput_varscan_somatic.py ",
             "minVarSupport": "0",
             "pvalue": "0.05",
             "minNucCoverage": "0",
@@ -523,14 +523,14 @@
             "threads": 1
         },
 	"createReferenceHeaderFile":{
-            "call": "python /path/to/NGS-pipe/scripts/createReferenceHeaderFile.py ",
+            "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/createReferenceHeaderFile.py ",
             "scratch": "1000",
             "mem": "500",
             "time": "200",
             "threads": 1
         },
         "updateVCFHeader":{
-            "call": "python /path/to/NGS-pipe/scripts/includeRefnamesInVCFHeader.py ",
+            "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/includeRefnamesInVCFHeader.py ",
             "scratch": "5000",
             "mem": "2000",
             "time": "200",
@@ -595,7 +595,7 @@
             "method": "joint_snv_mix_two"
         },
         "deepSNV":{
-            "call":"/path/to/NGS-pipe/scripts/deepSNV_automated_variants.sh ",
+            "call":"/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/deepSNV_automated_variants.sh ",
             "scratch": "10000",
             "mem": "10000",
             "time": "1400",
@@ -630,7 +630,7 @@
             "varDict2VcfPairedParams": "-f 0.01"
         },
         "varDictSplitBed":{
-            "call": "python3 /path/to/split_mergedBed.py ",
+            "call": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/somaticseq-2.1.2/split_mergedBed.py ",
             "scratch": "1000",
             "mem": "1000",
             "time": "60",
@@ -696,7 +696,7 @@
                 "scratch": ""
             },
             "filter":{
-                "call":"python /path/to/NGS-pipe/scripts/filterBICseq2.py ",
+                "call":"python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/filterBICseq2.py ",
                 "scratch": "",
                 "mem": "",
                 "time": "",
@@ -705,7 +705,7 @@
             }
         },
         "extractContigs":{
-            "call":"/path/to/NGS-pipe/scripts/extractContigsFormFasta.py",
+            "call":"/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/extractContigsFormFasta.py",
             "scratch": "10000",
             "mem": "10000",
             "time": "60",
@@ -748,8 +748,8 @@
             "params": ""
         },
         "snpHeatmap": {
-            "call": "Rscript /path/to/NGS-pipe/scripts/snpHeatmap.R",
-            "prepare": "python3 /path/to/NGS-pipe/scripts/prepareDataForSNPHeatmap.py",
+            "call": "Rscript /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/snpHeatmap.R",
+            "prepare": "python3 /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/prepareDataForSNPHeatmap.py",
             "scratch": "10000",
             "mem": "10000",
             "time": "60",
@@ -790,7 +790,7 @@
                 "threads": 1
             },
             "facets": {
-                "call": "Rscript /path/to/NGS-pipe/scripts/facets.R",
+                "call": "Rscript /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/facets.R",
                 "params": "",
                 "scratch": "10000",
                 "mem": "10000",
@@ -798,7 +798,7 @@
                 "threads": 1
             },
             "reformat": {
-                "call": "python /path/to/NGS-pipe/scripts/facets_reformat_correctChromName.py ",
+                "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/facets_reformat_correctChromName.py ",
                 "params": "--colName_chrom chrom --colName_start start --colName_stop end ",
                 "scratch": "10000",
                 "mem": "2000",
@@ -806,7 +806,7 @@
                 "threads": 1
             },
             "filter": {
-                "call": "python /path/to/NGS-pipe/scripts/filter_facets_copynumber.py ",
+                "call": "python /home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe/scripts/filter_facets_copynumber.py ",
                 "colName_totalCopy": "tcn.em",
                 "colName_snpNum": "nhet",
                 "threshold_snpNum": "16",

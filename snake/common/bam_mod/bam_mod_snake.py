@@ -110,12 +110,14 @@ def getAlignerBams():
             out.append(os.path.dirname(f) +'/ORPHAN/' + ntpath.basename(f) + '.bam')
         for f in PAIREDFASTQFILESWITHOUTR:
             out.append( f + '.bam')
+    print(out)
     return out
 
 # This function is a helper function to get the BAM file names which are then merged.
 def getBamsToMerge(wildcards):
     out = []
     allBams = getAlignerBams()
+    print(allBams)
     for bam in allBams:
         if wildcards.sample == bam.split("/")[0]:
             out.append(MERGEBAMSIN + bam)

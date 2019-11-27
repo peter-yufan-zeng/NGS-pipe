@@ -7,6 +7,7 @@ FASTQDIR = "/home/zyfniu/scratch"
 OUTDIR   = '../out/'
 TMPDIR   = '../tmp/'
 SAMPLEMAPPING = 'sample_mapping.tsv'
+ORGNAISM = 'H_sapiens_hg38'
 
 # Check if the uses specified the proper input and output directories
 if not 'FASTQDIR' in globals():

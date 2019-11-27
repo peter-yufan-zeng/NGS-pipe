@@ -50,9 +50,6 @@
             "pathSnpEffDB": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/snpeffi_databases/",
             "strelkaConfig": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/strelka_config_bwa_exome.ini",
             "strelka2Config": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/strelka/src/python/bin/configureStrelkaSomaticWorkflow.py.ini",
-            "contigNames": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/ucsc.hg19.contigNames",
-            "pathBicSeq2Mappability": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/pathBicSeq2Mappability",
-            "pathSingleChromosomes": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/pathSingleChromosomes",
             "annovarDB" : "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/human_annovar_db",
             "referenceNamesForVcf": "/home/zyfniu/projects/def-nicholsa/zyfniu/NGS-pipe-index-resources/ucsc.hg19.referenceNames.txt"
         },

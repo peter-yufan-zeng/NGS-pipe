@@ -119,6 +119,7 @@ def getBamsToMerge(wildcards):
     for bam in allBams:
         if wildcards.sample == bam.split("/")[0]:
             out.append(MERGEBAMSIN + bam)
+            print(out)
     if not out:
         #print(wildcards)
         return ['ERROR']

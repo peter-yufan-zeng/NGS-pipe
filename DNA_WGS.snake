@@ -1,7 +1,7 @@
 import os, glob, sys
 
 # functionality like getSampleNames
-include: "/home/zyfniu/scratch/NGS-pipe/common/misc/misc_snake.py"
+include: "/home/zyfniu/scratch/NGS-pipe/snake/common/misc/misc_snake.py"
 
 FASTQDIR = "/home/zyfniu/scratch"
 OUTDIR   = '../out/'
